@@ -9,7 +9,6 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -42,14 +41,6 @@ public class StudentController {
     public ResponseEntity<SuccessResponse> getMyCurrentlyReadingBooks(@PathVariable int studentId) {
         List<BookResponse> currentlyReadingBooks = studentService.findCurrentlyReadingBooksByStudentId(studentId);
         SuccessResponse response = new SuccessResponse(HttpStatus.OK.value(), "Currently reading books for Student ID", currentlyReadingBooks);
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-
-    @Operation(summary = "Start reading a book by book ID", description = "Adds a book to the currently reading list of the authenticated student.")
-    @PostMapping("/{bookId}/read-book")
-    public ResponseEntity<SuccessResponse> startReadingBook(@PathVariable int bookId, @RequestHeader("Authorization") String token) {
-        StudentResponse studentResponse = studentService.startReadingBook(bookId, token);
-        SuccessResponse response = new SuccessResponse(HttpStatus.OK.value(), "The book has been successfully added", studentResponse);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
