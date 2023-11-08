@@ -4,6 +4,8 @@ spring:
     url: jdbc:postgresql://db:5432/bookstore-db
     username: postgres
     password: postgres
+  banner:
+    location: classpath:banner.txt
 
   liquibase:
     enabled: true
