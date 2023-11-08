@@ -11,8 +11,8 @@ import java.util.Optional;
 public interface StudentRepository extends JpaRepository<Student, Integer> {
 
     @Query("SELECT s from Student s WHERE s.user.id =:userId")
-    Optional<Student> findByUserId(@Param("userId") Integer userId);
+    Optional<Student> findByUserId(@Param("userId") int userId);
 
     @Query("SELECT s FROM Student s JOIN s.subscriptions a WHERE a.id = :authorId")
-    Optional<List<Student>> getSubscribedStudents(@Param("authorId") Integer authorId);
+    Optional<List<Student>> getSubscribedStudents(@Param("authorId") int authorId);
 }

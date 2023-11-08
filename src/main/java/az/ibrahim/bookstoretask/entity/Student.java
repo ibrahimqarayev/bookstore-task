@@ -18,10 +18,9 @@ import java.util.Set;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Integer id;
     private String name;
-    private String age;
+    private int age;
 
     @ManyToMany
     @JoinTable(

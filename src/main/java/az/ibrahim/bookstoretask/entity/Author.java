@@ -21,13 +21,15 @@ public class Author {
     @Column(name = "id")
     private Integer id;
     private String name;
-    private String age;
+    private int age;
 
     @OneToMany(mappedBy = "author")
     private List<Book> authoredBooks = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "subscriptions")
-    private Set<Student> subscribedStudents = new HashSet<>();
+
+    //todo CHECK THIS
+//    @ManyToMany(mappedBy = "subscriptions")
+//    private Set<Student> subscribedStudents = new HashSet<>();
 
     @OneToOne
     @JoinColumn(name = "user_id")

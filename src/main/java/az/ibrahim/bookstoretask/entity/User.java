@@ -17,11 +17,10 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Entity
-@Table(name = "users")
+@Table(name = "_users")
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Integer id;
     private String username;
     private String email;
