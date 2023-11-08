@@ -1,6 +1,5 @@
-# Project Name
-
-Project Description (a brief summary)
+# BookStore API
+Task
 
 ## Project Configuration
 
@@ -19,6 +18,25 @@ This project is based on Maven and includes the following dependencies:
 
 These dependencies define the functionality and configuration of the project.
 
-## Installation
 
-You can find the project installation steps in the [Getting Started](#getting-started) section.
+## Functional Requirements
+
+1. **User Registration and Login:**
+   - Users can register as students or authors.
+   - Secure authentication using JWT (JSON Web Tokens).
+
+2. **Student Functionality:**
+   - Students can log in and access books for reading.
+   - View the list of books they're currently reading.
+   - Subscribe to specific authors for email notifications.
+
+3. **Author Functionality:**
+   - Authors can log in and create new books.
+   - Delete their own books.
+
+4. **API for Retrieving Readers:**
+   - Implement an API to retrieve a list of all readers for a specific book.
+
+5. **Email Notifications:**
+   - Students can subscribe to authors and receive email notifications with book details when a new book is published.
+
