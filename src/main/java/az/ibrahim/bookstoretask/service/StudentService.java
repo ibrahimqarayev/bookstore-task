@@ -79,6 +79,7 @@ public class StudentService {
 
     public Student findStudentFromToken(String token) {
         User user = userService.findUserFromToken(token);
+        userService.checkStudentRole(user);
         return findByUserId(user.getId());
     }
 

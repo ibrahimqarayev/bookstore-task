@@ -1,8 +1,10 @@
 package az.ibrahim.bookstoretask.service;
 
 import az.ibrahim.bookstoretask.dto.request.RegisterRequest;
+import az.ibrahim.bookstoretask.entity.Student;
 import az.ibrahim.bookstoretask.entity.User;
 import az.ibrahim.bookstoretask.enums.Role;
+import az.ibrahim.bookstoretask.exception.AccessDeniedException;
 import az.ibrahim.bookstoretask.exception.DuplicateResourceException;
 import az.ibrahim.bookstoretask.exception.ResourceNotFoundException;
 import az.ibrahim.bookstoretask.repository.UserRepository;
@@ -28,6 +30,19 @@ public class UserService {
         }
         return findByUsername(username);
     }
+
+    public void checkAuthorRole(User user) {
+        if (user.getRole() != Role.AUTHOR) {
+            throw new AccessDeniedException("Only authors can access this endpoint");
+        }
+    }
+
+    public void checkStudentRole(User user) {
+        if (user.getRole() != Role.STUDENT) {
+            throw new AccessDeniedException("Only students can access this endpoint");
+        }
+    }
+
 
     public User createStudent(RegisterRequest registerRequest) {
         User user = new User();

@@ -39,6 +39,7 @@ public class AuthorService {
 
     public Author findAuthorFromToken(String token) {
         User user = userService.findUserFromToken(token);
+        userService.checkAuthorRole(user);
         return findByUserId(user.getId());
     }
 
