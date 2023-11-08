@@ -1,7 +1,4 @@
 # BookStore API
-Task
-
-## Project Configuration
 
 This project is based on Maven and includes the following dependencies:
 
@@ -19,7 +16,7 @@ This project is based on Maven and includes the following dependencies:
 These dependencies define the functionality and configuration of the project.
 
 
-## Functional Requirements
+## Services
 
 1. **User Registration and Login:**
    - Users can register as students or authors.
