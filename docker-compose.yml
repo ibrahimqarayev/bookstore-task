@@ -20,7 +20,6 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql
   pgadmin:
-    hostname: postgres
     image: dpage/pgadmin4
     container_name: pgadmin-container
     environment:
