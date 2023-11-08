@@ -16,7 +16,7 @@ This project is based on Maven and includes the following dependencies:
 These dependencies define the functionality and configuration of the project.
 
 
-## Services
+## Task Functional Requirements:
 
 1. **User Registration and Login:**
    - Users can register as students or authors.
@@ -37,3 +37,8 @@ These dependencies define the functionality and configuration of the project.
 5. **Email Notifications:**
    - Students can subscribe to authors and receive email notifications with book details when a new book is published.
 
+## Task Technical Details:
+   - Employ PostgreSQL or MySql for data storage.
+   - Define database tables using Liquibase.
+   - Create an environment using Docker, ensuring that all components can be started with a single "docker-compose up" command.
+   - Add unit tests if possible, the higher the test coverage, the better it is.
