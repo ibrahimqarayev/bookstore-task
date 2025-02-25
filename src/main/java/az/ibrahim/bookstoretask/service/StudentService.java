@@ -2,7 +2,6 @@ package az.ibrahim.bookstoretask.service;
 
 import az.ibrahim.bookstoretask.dto.response.BookResponse;
 import az.ibrahim.bookstoretask.dto.response.StudentResponse;
-import az.ibrahim.bookstoretask.dto.response.StudentSummaryResponse;
 import az.ibrahim.bookstoretask.entity.Author;
 import az.ibrahim.bookstoretask.entity.Book;
 import az.ibrahim.bookstoretask.entity.Student;
@@ -22,7 +21,7 @@ public class StudentService {
     private final DtoConversionService conversionService;
     private final UserService userService;
     private final AuthorService authorService;
-    private final BookService bookService;
+
 
     public List<StudentResponse> findAll() {
         List<Student> students = studentRepository.findAll();
@@ -55,11 +54,10 @@ public class StudentService {
     }
 
 
-    public StudentResponse startReadingBook(int bookId, String token) {
+    public void addBookToCurrentlyReadingList(Book book, String token) {
         Student student = findStudentFromToken(token);
-        Book book = bookService.findById(bookId);
         student.getCurrentlyReading().add(book);
-        return conversionService.toStudentResponse(save(student));
+        save(student);
     }
 
 
@@ -81,6 +79,7 @@ public class StudentService {
 
     public Student findStudentFromToken(String token) {
         User user = userService.findUserFromToken(token);
+        userService.checkStudentRole(user);
         return findByUserId(user.getId());
     }
 
